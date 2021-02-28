@@ -1,8 +1,8 @@
 class Product {
-  title = "DEFAULT";
-  imageUrl;
-  description;
-  price;
+  // title = "DEFAULT";
+  // imageUrl;
+  // description;
+  // price;
 
   constructor(title, image, desc, price) {
     this.title = title;
@@ -12,10 +12,8 @@ class Product {
   }
 }
 
-console.log(new Product());
-
-const productList = {
-  products: [
+class ProductList {
+  products = [
     new Product(
       "A Pillow",
       "https://i1.adis.ws/i/dreams/719-00201_main-shot_01_therapur-cool-pillow",
@@ -28,7 +26,10 @@ const productList = {
       "A carpet which you might like - or not.",
       89.99
     ),
-  ],
+  ];
+
+  constructor() {}
+
   render() {
     const renderHook = document.getElementById("app");
     const prodList = document.createElement("ul");
@@ -50,7 +51,8 @@ const productList = {
       prodList.append(prodEl);
     }
     renderHook.append(prodList);
-  },
-};
+  }
+}
 
+const productList = new ProductList();
 productList.render();
